@@ -8,12 +8,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
 <style>
-  @font-face {
-    font-family: 'Inter';
-    src: url('fonts/InterVariable.ttf') format('truetype');
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
+ @font-face {
+  font-family: 'InterCustom';
+  src: url('fonts/InterVariable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
   }
 </style>
 
@@ -23,7 +23,7 @@
     body {
       background: #ffffff;
       color: #000000;
-      font-family: 'Inter', sans-serif;
+      font-family: 'InterCustom', sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -59,14 +59,16 @@ nav a:hover { color: #000; }
       padding-bottom: 32px;
     }
 
-    h1 {
-      font-family: 'Inter', sans-serif;
-      font-size: 32px;
-      line-height: 40px;
-      font-weight: 600;
-      color: #000000;
-      margin-bottom: 20px;
-      font-feature-settings: 'cv01' on, 'ss01' on;
+h1 {
+  font-family: 'InterCustom', sans-serif;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 600;
+  font-variation-settings: 'wght' 600;
+  color: #000000;
+  margin-bottom: 20px;
+  font-feature-settings: 'cv01' on, 'ss01' on;
+}
     }
 
     @media (max-width: 768px) {
@@ -85,7 +87,7 @@ nav a:hover { color: #000; }
       margin-bottom: 40px;
     }
     .tag {
-      font-family: 'Inter', sans-serif;
+      font-family: 'InterCustom', sans-serif;
       font-size: 13px;
       font-weight: 400;
       letter-spacing: -0.2px;
@@ -120,7 +122,7 @@ nav a:hover { color: #000; }
     }
     .meta-item {}
     .meta-label {
-      font-family: 'Inter', sans-serif;
+      font-family: 'InterCustom', sans-serif;
       font-size: 13px;
       font-weight: 400;
       color: #717171;
@@ -129,7 +131,7 @@ nav a:hover { color: #000; }
       margin-bottom: 2px;
     }
     .meta-value {
-      font-family: 'Inter', sans-serif;
+      font-family: 'InterCustom', sans-serif;
       font-size: 15px;
       font-weight: 500;
       color: #000;
@@ -140,18 +142,20 @@ nav a:hover { color: #000; }
     .section-block {
       margin-bottom: 40px;
     }
-    .section-block h2 {
-      font-family: 'Inter', sans-serif;
-      font-size: 18px;
-      line-height: 26px;
-      font-weight: 500;
-      letter-spacing: -0.2px;
-      color: #000000;
-      margin-bottom: 12px;
+.section-block h2 {
+  font-family: 'InterCustom', sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 500;
+  font-variation-settings: 'wght' 500;
+  letter-spacing: -0.2px;
+  color: #000000;
+  margin-bottom: 12px;
+}
     }
     .section-block p,
     .section-content {
-      font-family: 'Inter', sans-serif;
+      font-family: 'InterCustom', sans-serif;
       font-size: 16px;
       font-weight: 400;
       letter-spacing: -0.2px;
@@ -179,7 +183,7 @@ nav a:hover { color: #000; }
       margin-bottom: 40px;
     }
     .objective-block p {
-      font-family: 'Inter', sans-serif;
+      font-family: 'InterCustom', sans-serif;
       font-size: 16px;
       font-weight: 400;
       letter-spacing: -0.2px;
@@ -200,7 +204,7 @@ nav a:hover { color: #000; }
     }
     /* Acceptance Flow Diagram */
     .flow-title {
-      font-family: 'Inter', sans-serif;
+      font-family: 'InterCustom', sans-serif;
       font-size: 15px;
       font-weight: 600;
       color: #000;
@@ -234,14 +238,14 @@ nav a:hover { color: #000; }
       text-align: center;
       padding: 8px;
       color: #333;
-      font-family: 'Inter', sans-serif;
+      font-family: 'InterCustom', sans-serif;
     }
     .flow-node .node-shape.green { background: #1a7a4a; border-color: #1a7a4a; color: #fff; }
     .flow-node .node-shape.grey { background: #e0e0e0; border-color: #bbb; color: #444; }
     .flow-node .node-label {
       font-size: 10px;
       color: #888;
-      font-family: 'Inter', sans-serif;
+      font-family: 'InterCustom', sans-serif;
       text-align: center;
       max-width: 90px;
       line-height: 14px;
@@ -276,7 +280,7 @@ nav a:hover { color: #000; }
       border-radius: 6px;
       padding: 8px 12px;
       font-size: 10px;
-      font-family: 'Inter', sans-serif;
+      font-family: 'InterCustom', sans-serif;
       color: #444;
       font-weight: 500;
     }
@@ -287,7 +291,7 @@ nav a:hover { color: #000; }
       border-radius: 12px;
       overflow: hidden;
       background: linear-gradient(135deg, #e8d5f5 0%, #c8d8f5 50%, #f5c8c8 100%);
-      padding: 24px;
+      padding: 8px;
     }
     .screenshot-mock {
       background: #fff;
@@ -466,7 +470,7 @@ nav a:hover { color: #000; }
 
     /* ── Image caption ── */
     .img-caption {
-      font-family: 'Inter', sans-serif;
+      font-family: 'InterCustom', sans-serif;
       font-size: 13px;
       line-height: 20px;
       color: #717171;
@@ -483,7 +487,7 @@ nav a:hover { color: #000; }
       margin: 0;
     }
     .feature-list li {
-      font-family: 'Inter', sans-serif;
+      font-family: 'InterCustom', sans-serif;
       font-size: 16px;
       font-weight: 400;
       letter-spacing: -0.2px;
@@ -507,7 +511,7 @@ nav a:hover { color: #000; }
       margin: 0;
     }
     .feedback-list li {
-      font-family: 'Inter', sans-serif;
+      font-family: 'InterCustom', sans-serif;
       font-size: 16px;
       font-weight: 400;
       letter-spacing: -0.2px;
@@ -542,7 +546,7 @@ nav a:hover { color: #000; }
       line-height: 1;
     }
     .impact-desc {
-      font-family: 'Inter', sans-serif;
+      font-family: 'InterCustom', sans-serif;
       font-size: 16px;
       font-weight: 400;
       letter-spacing: -0.2px;
@@ -562,7 +566,7 @@ nav a:hover { color: #000; }
       .impact-grid { gap: 24px; }
     }
     .learning-card h3 {
-      font-family: 'Inter', sans-serif;
+      font-family: 'InterCustom', sans-serif;
       font-size: 16px;
       font-weight: 600;
       color: #DB0A40;
@@ -570,7 +574,7 @@ nav a:hover { color: #000; }
       line-height: 26px;
     }
     .learning-card p {
-      font-family: 'Inter', sans-serif;
+      font-family: 'InterCustom', sans-serif;
       font-size: 16px;
       font-weight: 400;
       letter-spacing: -0.2px;
@@ -592,7 +596,7 @@ nav a:hover { color: #000; }
       margin: 0;
     }
     .refined-list li {
-      font-family: 'Inter', sans-serif;
+      font-family: 'InterCustom', sans-serif;
       font-size: 16px;
       font-weight: 400;
       letter-spacing: -0.2px;
@@ -746,7 +750,7 @@ nav a:hover { color: #000; }
   <!-- DESIGN DECISIONS -->
   <div class="section-block">
     <h2>Design Decisions</h2>
-    <p class="section-content">I evolved the flow into two-step layout that clearly separates the actions to be performed by transporters into acceptance / rejection of the indent and assigning the vehicles to accepted indents. I've designed these interactions carefully since this is the most critical point for users in the flow.</p>
+    <p class="section-content">I evolved the flow into two-step layout that clearly separates the actions to be performed by transporters into acceptance / rejection of the indent and assigning the vehicles to accepted indents. I've designed these InterCustomCustomeractions carefully since this is the most critical point for users in the flow.</p>
   </div>
 
   <!-- Acceptance Flow Diagram -->
