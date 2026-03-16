@@ -737,7 +737,7 @@
   <!-- CONTEXT -->
   <div class="section-block">
     <h2>Context</h2>
-    <p class="section-content">The Transportation Management System (TMS) is a logistics solution used by enterprise logistics teams and the transporter partners to plan and execute shipments. I led the 0 → 1 feature research and design (no prior MVP existed) on the TMS platform for Enterprise logistics teams and Transporter partners for indent acceptance and vehicle assignment. The solution reduced the dispatch delays and removed the support dependency for operational updates.</p>
+    <p class="section-content">The Transportation Management System (TMS) is a logistics solution used by enterprise logistics team and the transporter partners to plan and execute shipments. I led the 0 → 1 feature research and design and post-MVP redesign on the TMS platform for Enterprise logistics team and Transporter partners for indent acceptance and vehicle assignment. The solution reduced the dispatch delays and removed the support dependency for operational updates</p>
   </div>
 
   <hr class="divider"/>
@@ -745,7 +745,7 @@
   <!-- PROBLEM STATEMENT -->
   <div class="section-block">
     <h2>Problem Statement</h2>
-    <p class="section-content">The challenge was to formalise a non-trivial operational activity – confirming vehicle availability and preparing for shipment. The Enterprises could request multiple vehicles in single indent while the transporters might only have partial fleet availability. The system should support those operational realities without disrupting the shipment planning or dispatch timelines.</p>
+    <p class="section-content">The challenge was to translate a real-world operational activity - confirming vehicle availability and preparing for shipment. The Enterprises could request multiple vehicles in single indent while the transporters might only have partial fleet availability. The system should support these operational realities without disrupting the shipment planning or dispatch timelines.</p>
   </div>
 
   <hr class="divider"/>
@@ -755,20 +755,20 @@
     <h2>Objective</h2>
   </div>
   <div class="objective-block">
-    <p>Design a clear and reliable workflow that allows transporters to respond to indents, allocate vehicles efficiently, and ensure the vehicles reach the right sites for loading without operational delays.</p>
+    <p>Design a clear and reliable workflow that allows transporters to respond to indents, allocate vehicles efficiently, and ensure the vehicles reach the origin sites for loading without operational delays.</p>
   </div>
 
   <!-- DESIGN DECISIONS -->
   <div class="section-block">
     <h2>Design Decisions</h2>
-    <p class="section-content">I created the flow into a step-by-step layout that clearly separates the actions to be performed by transporters into acceptance / rejection of the indent and assigning the vehicles to accepted indents. I've designed these interactions carefully since this is the most critical point for users in the flow.</p>
+    <p class="section-content">I evolved the flow into two-step layout that clearly separates the actions to be performed by transporters into acceptance / rejection of the indent and assigning the vehicles to accepted indents. I've designed these interactions carefully since this is the most critical point for users in the flow.</p>
   </div>
 
   <!-- Acceptance Flow Diagram -->
   <a href="#" target="_blank" rel="noopener">
     <img
-      src="https://placehold.co/840x400/f5f6fa/888888?text=Acceptance+Flow+Diagram"
-      alt="Acceptance flow diagram for transporters"
+      src="images/Flow.jpg"
+      alt="the action flow taken by the transporters"
       class="img-placeholder"
     />
   </a>
@@ -779,72 +779,69 @@
   <div class="section-block">
     <div class="special-label">ADDITIONAL FEATURES</div>
     <ul class="feature-list">
-      <li>To support operational realities, I introduced <strong>Partial Acceptance</strong>, allowing transporters to fulfil only the vehicles as their availability.</li>
-      <li>For high-volume cases, I also added <strong>Bulk Upload option</strong>, enabling transporters to upload multiple assignments at once.</li>
+      <li>To support operational realities, I introduced <strong>Partial Acceptance</strong>, allowing transporters to fulfil only if they have the vehicle availability</li>
+      <li>For high-volume cases, I also added <strong>Bulk Upload option</strong>, enabling transporters to upload multiple assignments at once</li>
     </ul>
   </div>
 
   <!-- Screenshot: Acceptance flow of proposals -->
   <a href="#" target="_blank" rel="noopener">
     <img
-      src="https://placehold.co/840x420/ede8f5/888888?text=Acceptance+Flow+UI"
-      alt="UI showcasing the acceptance flow of proposals for transporters"
+      src="images/Vid.mp4"
+      alt="a gifshowcasing the acceptance flow of proposals for transporters"
       class="img-placeholder"
     />
   </a>
-  <p class="img-caption">A UI showcasing the acceptance flow of proposals for transporters</p>
+  <p class="img-caption">a gif showcasing the acceptance flow of proposals for transporters</p>
 
   <!-- Screenshot: Rejection / Dialog -->
   <a href="#" target="_blank" rel="noopener">
     <img
-      src="https://placehold.co/840x380/f5e8e8/888888?text=Rejection+Dialog"
+      src="images/Rejecting photo.jpg"
       alt="Rejection confirmation dialog for transporters"
       class="img-placeholder"
     />
   </a>
-  <p class="img-caption">Rejection confirmation dialog for transporters</p>
 
   <!-- Screenshot: Vehicle Details Form -->
   <a href="#" target="_blank" rel="noopener">
     <img
-      src="https://placehold.co/840x380/e8eff5/888888?text=Vehicle+Assignment+Form"
+      src="images/Assigning Photo.jpg"
       alt="Vehicle assignment form with driver details entry"
       class="img-placeholder"
     />
   </a>
-  <p class="img-caption">Vehicle assignment form with driver details entry</p>
 
   <hr class="divider"/>
 
   <!-- POST MVP -->
   <div class="section-block">
     <h2>Post MVP Iteration with Redefined Solution</h2>
-    <p class="section-content">After launching the MVP to our early customers, my team and I started receiving frequent requests to modify driver and vehicle details such as updating driver names, vehicle numbers, or vehicle registration numbers. To understand the issue better, I got on calls with our customers to understand the issue better.</p>
+    <p class="section-content">After launching the MVP to our early customers, my team and I started receiving frequent requests to modify driver and vehicle details such as updating driver names, mobile numbers, or vehicle registration numbers. To understand the issue better, i got on calls with our customers:</p>
   </div>
 
   <!-- GATHERED FEEDBACKS -->
   <div class="section-block">
     <div class="special-label">GATHERED FEEDBACKS</div>
     <ul class="feedback-list">
-      <li>Users could change or the last moment.</li>
-      <li>Wrong vehicles sometimes linked to the vehicle tracking.</li>
-      <li>Different vehicles were substituted for loading error.</li>
-      <li>Swapping of incorrect entries made by Transporters.</li>
+      <li>Drivers could change at last moment</li>
+      <li>SIM tracking consents sometimes failed leads to no vehicle tracking</li>
+      <li>Different vehicles were substituted to loading area</li>
+      <li>Instances of incorrect entries made by transporters</li>
     </ul>
   </div>
 
-  <p class="section-content" style="margin-bottom: 16px;">Additionally, the customers wanted Save on 1-Save out functionality so best to remove the dependency on mobile devices.</p>
+  <p class="section-content" style="margin-bottom: 16px;">Additionally, the customers wanted Gate-in / Gate-out functionality on web to remove the dependency on mobile devices.</p>
 
-  <hr class="divider"/>
 
   <!-- REFINED SOLUTION -->
   <div class="section-block">
     <h2>Refined Solution</h2>
     <p class="section-content" style="margin-bottom: 16px;">To address the above key feedbacks, I redesigned the system with the following updates:</p>
     <ul class="refined-list">
-      <li>Allowed vehicle details edits till Vehicle Out event.</li>
-      <li>Extended Vehicle Save on / Save out functionality on web platform (for now).</li>
-      <li>Added VAHAN verification to validate truck documents.</li>
+      <li>Allowed vehicle details edits till Gate-Out event</li>
+      <li>Extended Vehicle Gate-in / Gate-out functionality on web platform trip-wise</li>
+      <li>Added VAHAN verification to validate truck documents</li>
     </ul>
   </div>
 
@@ -858,9 +855,8 @@
       class="img-placeholder"
     />
   </a>
-  <p class="img-caption">Refined Vehicle Details section — before &amp; after comparison</p>
+  <p class="img-caption">"vehicle details" tab - before vs after</p>
 
-  <hr class="divider"/>
 
   <!-- IMPACT -->
   <div class="section-block">
@@ -890,11 +886,11 @@
   <div class="learnings-grid">
     <div class="learning-card">
       <h3>The simplest designs hold a lot of complexity:</h3>
-      <p>Seemingly workflows to decouple this complexity and bring simplicity to users. Elegant solutions require a lot of exploration and iteration.</p>
+      <p>My job as a designer is to explore the complexity and bring simplicity to users. Elegant solutions require a lot of exploration and iteration.</p>
     </div>
     <div class="learning-card">
       <h3>Post-MVP feedback is a part of the design process:</h3>
-      <p>Post-launch revealed edge cases that could not be predicted during planning. The redesign came from observing real usage, not assumptions.</p>
+      <p>Real users revealed edge cases that could not be predicted during planning. The redesign came from observing real usage, not assumptions.</p>
     </div>
   </div>
 
