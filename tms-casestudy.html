@@ -54,6 +54,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 28px 0 32px;
+      white-space: nowrap;
+      gap: 16px;
     }
     nav a {
       font-family: 'JetBrains Mono', monospace;
@@ -93,9 +95,9 @@
     .tags {
       display: flex;
       justify-content: center;
-      gap: 8px;
+      gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 28px;
+      margin-bottom: 40px;
     }
     .tag {
       font-family: 'Inter', sans-serif;
@@ -105,9 +107,9 @@
       line-height: 24px;
       color: #717171;
       border: 1px solid #888888;
-      padding: 12px 6px;
-      border-radius: 4px;
-      font-feature-settings: 'cv01' on, 'ss01' on;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-feature-settings: 'cv01' 1, 'ss01' 1;
     }
 
     .hero-image {
@@ -625,11 +627,12 @@
     /* ── Placeholder Images ── */
     .img-placeholder {
       width: 100%;
+      max-width: 840px;
       display: block;
       border-radius: 8px;
       background: #f0f0f0;
       object-fit: cover;
-      margin-bottom: 24px;
+      margin-bottom: 32px;
     }
 
     /* Screenshot with gradient bg */
@@ -713,7 +716,7 @@
         src="images/TMS_Title_Cover.jpg"
         alt="TMS Manage Proposals screen"
         class="img-placeholder"
-        style="height:480px;"
+        style="height: 480px; object-fit: cover; object-position: top;"
       />
     </a>
   </div>
