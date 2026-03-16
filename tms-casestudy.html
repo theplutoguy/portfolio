@@ -6,7 +6,17 @@
   <title>TMS – Simplifying Indent Acceptance</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      src: url('https://rsms.me/inter/font-files/Inter.var.woff2') format('woff2 supports variations'),
+           url('https://rsms.me/inter/font-files/Inter.var.woff2') format('woff2');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -56,6 +66,7 @@
       font-weight: 600;
       color: #000000;
       margin-bottom: 20px;
+      font-feature-settings: 'cv01' on, 'ss01' on;
     }
 
     @media (max-width: 768px) {
@@ -83,9 +94,9 @@
       border: 1px solid #888888;
       padding: 12px 6px;
       border-radius: 4px;
+      font-feature-settings: 'cv01' on, 'ss01' on;
     }
 
-    /* ── Hero Image ── */
     .hero-image {
       width: 100%;
       border-radius: 8px;
@@ -462,6 +473,7 @@
       text-align: center;
       margin-top: 8px;
       margin-bottom: 32px;
+      font-feature-settings: 'cv01' on, 'ss01' on;
     }
 
     /* ── Bullet list ── */
@@ -670,7 +682,7 @@
   <!-- NAV -->
   <nav>
     <a href="#">HOME</a>
-    <a href="#">NEXT PROJECT →</a>
+    <a href="#">NEXT PROJECT ›</a>
   </nav>
 
   <!-- HERO -->
