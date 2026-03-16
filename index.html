@@ -16,12 +16,12 @@
       -webkit-font-smoothing: antialiased;
     }
     nav {
-      position: static;
+      position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
       background: rgba(255,255,255,0.95);
       backdrop-filter: blur(8px);
-      height: 80px;
+      height: 112px;
       display: flex;
       align-items: center;
     }
@@ -55,7 +55,7 @@
     }
     .nav-links a:hover { color: #111; }
     .nav-links .sep { color: #737373; margin: 0 9px; }
-    .page { padding-top: 0px; }
+    .page { padding-top: 112px; }
     .container {
       max-width: 840px;
       margin: 0 auto;
@@ -71,7 +71,6 @@
       width: 100%;
       max-width: 700px;
       margin-bottom: 32px;
-      font-feature-settings: "cv01" 1, "ss01" 1;
       opacity: 0;
       transform: translateY(16px);
       animation: fadeUp 0.5s ease forwards 0.05s;
@@ -135,7 +134,7 @@
       color: #000;
       line-height: 26px;
       letter-spacing: -0.2px;
-      margin-bottom: 16px;
+      margin-bottom: 6px;
     }
     .project-desc {
       font-size: 16px;
@@ -223,7 +222,6 @@
     }
     @media (max-width: 600px) {
       footer { flex-direction: column; align-items: flex-start; gap: 12px; }
-      .page { padding-top: 60px; }
     }
   </style>
 </head>
@@ -249,9 +247,9 @@
 
       <p class="recent-label">RECENT WORKS</p>
 
-      <a href="tms-casestudy.html" class="project-link">
+      <a href="#" class="project-link">
         <div class="project-img-wrap">
-          <img class="project-img" src="images/TMS_Title_Cover.jpg" alt="Transport Management System" />
+          <img class="project-img" src="images/Tms title cover" alt="Transport Management System" />
         </div>
         <div class="project-meta">
           <p class="project-title">Transport Management System</p>
@@ -261,7 +259,7 @@
       </a>
 
       <div class="mascot-wrap">
-        <img src="images/mascot.png" alt="Still Sailing Still Learning" />
+        <img src="images/mascot" alt="Still Sailing Still Learning" />
         <p class="mascot-label">Still Sailing! Still Learning!</p>
       </div>
     </div>
