@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TMS – Simplifying Indent Acceptance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #ffffff;
+      color: #000000;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Layout ── */
+    .page-wrap {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 0 32px;
+    }
+    nav a {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: -0.2px;
+      line-height: 24px;
+      color: #717171;
+      text-decoration: none;
+    }
+    nav a:hover { color: #000; }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding-bottom: 32px;
+    }
+
+    h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: 32px;
+      line-height: 40px;
+      font-weight: 600;
+      color: #000000;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 24px;
+        line-height: 34px;
+      }
+    }
+
+    /* ── Tags ── */
+    .tags {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: -0.2px;
+      line-height: 24px;
+      color: #717171;
+      border: 1px solid #888888;
+      padding: 12px 6px;
+      border-radius: 4px;
+    }
+
+    /* ── Hero Image ── */
+    .hero-image {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+      background: linear-gradient(135deg, #e8eaf0 0%, #dde3f0 100%);
+      overflow: hidden;
+    }
+    .hero-image img {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+    }
+
+    /* ── Meta Row ── */
+    .meta-row {
+      display: flex;
+      gap: 48px;
+      padding: 32px 0 24px;
+      border-bottom: 1px solid #e5e5e5;
+      margin-bottom: 32px;
+    }
+    .meta-item {}
+    .meta-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #717171;
+      letter-spacing: -0.2px;
+      line-height: 24px;
+      margin-bottom: 2px;
+    }
+    .meta-value {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: #000;
+      line-height: 22px;
+    }
+
+    /* ── Section Block ── */
+    .section-block {
+      margin-bottom: 40px;
+    }
+    .section-block h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      line-height: 26px;
+      font-weight: 500;
+      letter-spacing: -0.2px;
+      color: #000000;
+      margin-bottom: 12px;
+    }
+    .section-block p,
+    .section-content {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.2px;
+      line-height: 26px;
+      color: #262626;
+    }
+
+    /* ── Special Section Labels ── */
+    .special-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+      line-height: 16px;
+      color: #DB0A40;
+      margin-bottom: 14px;
+    }
+
+    /* ── Objective highlight ── */
+    .objective-block {
+      border-left: 3px solid #DB0A40;
+      padding: 14px 20px;
+      background: #fff5f7;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 40px;
+    }
+    .objective-block p {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.2px;
+      line-height: 26px;
+      color: #262626;
+    }
+
+    /* ── Flow / Diagram Images ── */
+    .diagram-wrap {
+      margin: 32px 0;
+    }
+    .diagram-wrap .diagram-box {
+      width: 100%;
+      background: #f5f6fa;
+      border-radius: 10px;
+      padding: 32px 24px;
+      border: 1px solid #e5e5e5;
+    }
+    /* Acceptance Flow Diagram */
+    .flow-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 24px;
+    }
+    .flow-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .flow-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .flow-node .node-shape {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      text-align: center;
+      padding: 8px;
+      color: #333;
+      font-family: 'Inter', sans-serif;
+    }
+    .flow-node .node-shape.green { background: #1a7a4a; border-color: #1a7a4a; color: #fff; }
+    .flow-node .node-shape.grey { background: #e0e0e0; border-color: #bbb; color: #444; }
+    .flow-node .node-label {
+      font-size: 10px;
+      color: #888;
+      font-family: 'Inter', sans-serif;
+      text-align: center;
+      max-width: 90px;
+      line-height: 14px;
+    }
+    .flow-arrow {
+      width: 40px;
+      height: 2px;
+      background: #bbb;
+      position: relative;
+      margin: 0 4px;
+      align-self: center;
+      margin-top: -20px;
+    }
+    .flow-arrow::after {
+      content: '';
+      position: absolute;
+      right: -6px;
+      top: -4px;
+      border: 5px solid transparent;
+      border-left-color: #bbb;
+    }
+
+    .flow-side {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-left: 24px;
+    }
+    .flow-side-item {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 10px;
+      font-family: 'Inter', sans-serif;
+      color: #444;
+      font-weight: 500;
+    }
+
+    /* ── Screenshots ── */
+    .screenshot-wrap {
+      margin: 28px 0 8px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #e8d5f5 0%, #c8d8f5 50%, #f5c8c8 100%);
+      padding: 24px;
+    }
+    .screenshot-mock {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e0e0e0;
+    }
+    .screenshot-mock .mock-bar {
+      background: #f5f5f5;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      gap: 6px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .mock-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .mock-dot.r { background: #ff5f57; }
+    .mock-dot.y { background: #febc2e; }
+    .mock-dot.g { background: #28c840; }
+    .mock-url {
+      flex: 1;
+      height: 18px;
+      background: #e8e8e8;
+      border-radius: 4px;
+      margin: 0 16px;
+    }
+    .mock-body {
+      display: flex;
+      min-height: 200px;
+    }
+    .mock-sidebar {
+      width: 180px;
+      background: #1e2235;
+      padding: 16px 12px;
+      flex-shrink: 0;
+    }
+    .mock-sidebar .s-logo {
+      width: 60px;
+      height: 20px;
+      background: #3d4870;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    .mock-sidebar .s-item {
+      height: 10px;
+      background: #3d4870;
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+    .mock-sidebar .s-item.active {
+      background: #5b6bab;
+    }
+    .mock-main {
+      flex: 1;
+      padding: 16px 20px;
+      background: #fafafa;
+    }
+    .mock-main .m-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .mock-main .m-title {
+      width: 140px;
+      height: 14px;
+      background: #ddd;
+      border-radius: 3px;
+    }
+    .mock-main .m-btn {
+      width: 80px;
+      height: 26px;
+      background: #1a7a4a;
+      border-radius: 5px;
+    }
+    .mock-main .m-filters {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .mock-main .m-filter {
+      height: 26px;
+      background: #e5e5e5;
+      border-radius: 4px;
+      flex: 1;
+    }
+    .mock-main .m-row {
+      height: 36px;
+      background: #fff;
+      border: 1px solid #ebebeb;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      gap: 12px;
+    }
+    .mock-main .m-row .m-cell {
+      height: 8px;
+      background: #e0e0e0;
+      border-radius: 2px;
+      flex: 1;
+    }
+    .mock-main .m-row .m-badge {
+      width: 60px;
+      height: 18px;
+      background: #e8f5ee;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+    .mock-main .m-row .m-badge.orange {
+      background: #fff3e0;
+    }
+
+    /* Dialog mock */
+    .mock-dialog-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+    .mock-dialog {
+      background: #fff;
+      border-radius: 10px;
+      padding: 24px;
+      width: 280px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    .dialog-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #fef0f0;
+      border: 2px solid #DB0A40;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #DB0A40;
+    }
+    .dialog-title { width: 80%; height: 12px; background: #ddd; border-radius: 3px; margin: 0 auto 8px; }
+    .dialog-body { width: 90%; height: 8px; background: #eee; border-radius: 3px; margin: 0 auto 6px; }
+    .dialog-btns { display: flex; gap: 8px; margin-top: 16px; }
+    .dialog-btns .db { flex: 1; height: 30px; border-radius: 5px; background: #eee; }
+    .dialog-btns .db.primary { background: #DB0A40; }
+
+    .mock-form-body {
+      flex: 1;
+      padding: 16px 20px;
+      background: #fafafa;
+    }
+    .mock-form-body .f-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .mock-form-body .f-field {
+      flex: 1;
+      height: 34px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .mock-form-body .f-label {
+      height: 8px;
+      background: #ccc;
+      border-radius: 2px;
+      margin-bottom: 5px;
+      width: 60%;
+    }
+
+    /* ── Image caption ── */
+    .img-caption {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      line-height: 20px;
+      color: #717171;
+      text-align: center;
+      margin-top: 8px;
+      margin-bottom: 32px;
+    }
+
+    /* ── Bullet list ── */
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .feature-list li {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.2px;
+      line-height: 26px;
+      color: #262626;
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+    .feature-list li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: #888;
+    }
+
+    /* ── Feedback list ── */
+    .feedback-list {
+      list-style: disc;
+      padding-left: 22px;
+      margin: 0;
+    }
+    .feedback-list li {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.2px;
+      line-height: 26px;
+      color: #262626;
+      margin-bottom: 8px;
+    }
+
+    /* ── Impact Stats ── */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0 40px;
+    }
+    @media (max-width: 560px) {
+      .impact-grid { grid-template-columns: 1fr; }
+    }
+    .impact-stat {
+      background: #f3f3f1;
+      border-radius: 10px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .impact-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 36px;
+      font-weight: 600;
+      color: #DB0A40;
+      line-height: 1;
+    }
+    .impact-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.2px;
+      color: #262626;
+      line-height: 26px;
+    }
+
+    /* ── Key Learnings ── */
+    .learnings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    @media (max-width: 600px) {
+      .learnings-grid { grid-template-columns: 1fr; }
+      .impact-grid { gap: 24px; }
+    }
+    .learning-card h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #DB0A40;
+      margin-bottom: 8px;
+      line-height: 26px;
+    }
+    .learning-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.2px;
+      color: #262626;
+      line-height: 26px;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #e5e5e5;
+      margin: 40px 0;
+    }
+
+    /* ── Refined Solution bullets ── */
+    .refined-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .refined-list li {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.2px;
+      line-height: 26px;
+      color: #262626;
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 8px;
+    }
+    .refined-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #262626;
+    }
+
+    /* ── Placeholder Images ── */
+    .img-placeholder {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      background: #f0f0f0;
+      object-fit: cover;
+      margin-bottom: 8px;
+    }
+
+    /* Screenshot with gradient bg */
+    .ss-bg {
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 24px;
+      margin-bottom: 8px;
+    }
+    .ss-bg.purple { background: linear-gradient(135deg, #e8d5f5 0%, #c8d4f5 100%); }
+    .ss-bg.red    { background: linear-gradient(135deg, #f5d5d8 0%, #c8cef5 100%); }
+    .ss-bg.blue   { background: linear-gradient(135deg, #c8d8f5 0%, #f5e8d5 100%); }
+    .ss-bg.split  { background: linear-gradient(135deg, #d5e8f5 0%, #f5d5e8 100%); }
+
+    /* Before/After Split */
+    .split-mock {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .split-pane {
+      background: #fff;
+      padding: 12px;
+      min-height: 180px;
+    }
+    .split-pane .sp-label {
+      font-size: 9px;
+      font-weight: 700;
+      color: #DB0A40;
+      margin-bottom: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+    }
+    .sp-row {
+      height: 28px;
+      background: #f5f5f5;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+      gap: 8px;
+    }
+    .sp-row .sp-cell { flex: 1; height: 7px; background: #ddd; border-radius: 2px; }
+    .sp-row .sp-dot { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; }
+    .sp-row .sp-dot.g { background: #28c840; }
+    .sp-row .sp-dot.o { background: #febc2e; }
+
+    @media (max-width: 480px) {
+      nav { flex-direction: column; gap: 8px; align-items: flex-start; }
+      .meta-row { flex-direction: column; gap: 20px; }
+      .split-mock { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- NAV -->
+  <nav>
+    <a href="#">HOME</a>
+    <a href="#">NEXT PROJECT →</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Simplifying the Indent Acceptance and<br>Vehicle Assignment for Transporters</h1>
+
+    <div class="tags">
+      <span class="tag">B2B Saas</span>
+      <span class="tag">Web & Mobile</span>
+    </div>
+
+    <!-- Hero Screenshot -->
+    <a href="#" target="_blank" rel="noopener">
+      <img
+        src="https://placehold.co/840x480/e8eaf0/888888?text=Hero+Screenshot"
+        alt="TMS Manage Proposals screen"
+        class="img-placeholder"
+        style="height:480px;"
+      />
+    </a>
+  </div>
+
+  <!-- META ROW -->
+  <div class="meta-row">
+    <div class="meta-item">
+      <div class="meta-label">Role</div>
+      <div class="meta-value">Product Designer</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Period</div>
+      <div class="meta-value">Sept – Oct 2025</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Product</div>
+      <div class="meta-value">Web &amp; Mobile</div>
+    </div>
+  </div>
+
+  <!-- CONTEXT -->
+  <div class="section-block">
+    <h2>Context</h2>
+    <p class="section-content">The Transportation Management System (TMS) is a logistics solution used by enterprise logistics teams and the transporter partners to plan and execute shipments. I led the 0 → 1 feature research and design (no prior MVP existed) on the TMS platform for Enterprise logistics teams and Transporter partners for indent acceptance and vehicle assignment. The solution reduced the dispatch delays and removed the support dependency for operational updates.</p>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- PROBLEM STATEMENT -->
+  <div class="section-block">
+    <h2>Problem Statement</h2>
+    <p class="section-content">The challenge was to formalise a non-trivial operational activity – confirming vehicle availability and preparing for shipment. The Enterprises could request multiple vehicles in single indent while the transporters might only have partial fleet availability. The system should support those operational realities without disrupting the shipment planning or dispatch timelines.</p>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- OBJECTIVE -->
+  <div class="section-block">
+    <h2>Objective</h2>
+  </div>
+  <div class="objective-block">
+    <p>Design a clear and reliable workflow that allows transporters to respond to indents, allocate vehicles efficiently, and ensure the vehicles reach the right sites for loading without operational delays.</p>
+  </div>
+
+  <!-- DESIGN DECISIONS -->
+  <div class="section-block">
+    <h2>Design Decisions</h2>
+    <p class="section-content">I created the flow into a step-by-step layout that clearly separates the actions to be performed by transporters into acceptance / rejection of the indent and assigning the vehicles to accepted indents. I've designed these interactions carefully since this is the most critical point for users in the flow.</p>
+  </div>
+
+  <!-- Acceptance Flow Diagram -->
+  <a href="#" target="_blank" rel="noopener">
+    <img
+      src="https://placehold.co/840x400/f5f6fa/888888?text=Acceptance+Flow+Diagram"
+      alt="Acceptance flow diagram for transporters"
+      class="img-placeholder"
+    />
+  </a>
+
+  <hr class="divider"/>
+
+  <!-- ADDITIONAL FEATURES -->
+  <div class="section-block">
+    <div class="special-label">ADDITIONAL FEATURES</div>
+    <ul class="feature-list">
+      <li>To support operational realities, I introduced <strong>Partial Acceptance</strong>, allowing transporters to fulfil only the vehicles as their availability.</li>
+      <li>For high-volume cases, I also added <strong>Bulk Upload option</strong>, enabling transporters to upload multiple assignments at once.</li>
+    </ul>
+  </div>
+
+  <!-- Screenshot: Acceptance flow of proposals -->
+  <a href="#" target="_blank" rel="noopener">
+    <img
+      src="https://placehold.co/840x420/ede8f5/888888?text=Acceptance+Flow+UI"
+      alt="UI showcasing the acceptance flow of proposals for transporters"
+      class="img-placeholder"
+    />
+  </a>
+  <p class="img-caption">A UI showcasing the acceptance flow of proposals for transporters</p>
+
+  <!-- Screenshot: Rejection / Dialog -->
+  <a href="#" target="_blank" rel="noopener">
+    <img
+      src="https://placehold.co/840x380/f5e8e8/888888?text=Rejection+Dialog"
+      alt="Rejection confirmation dialog for transporters"
+      class="img-placeholder"
+    />
+  </a>
+  <p class="img-caption">Rejection confirmation dialog for transporters</p>
+
+  <!-- Screenshot: Vehicle Details Form -->
+  <a href="#" target="_blank" rel="noopener">
+    <img
+      src="https://placehold.co/840x380/e8eff5/888888?text=Vehicle+Assignment+Form"
+      alt="Vehicle assignment form with driver details entry"
+      class="img-placeholder"
+    />
+  </a>
+  <p class="img-caption">Vehicle assignment form with driver details entry</p>
+
+  <hr class="divider"/>
+
+  <!-- POST MVP -->
+  <div class="section-block">
+    <h2>Post MVP Iteration with Redefined Solution</h2>
+    <p class="section-content">After launching the MVP to our early customers, my team and I started receiving frequent requests to modify driver and vehicle details such as updating driver names, vehicle numbers, or vehicle registration numbers. To understand the issue better, I got on calls with our customers to understand the issue better.</p>
+  </div>
+
+  <!-- GATHERED FEEDBACKS -->
+  <div class="section-block">
+    <div class="special-label">GATHERED FEEDBACKS</div>
+    <ul class="feedback-list">
+      <li>Users could change or the last moment.</li>
+      <li>Wrong vehicles sometimes linked to the vehicle tracking.</li>
+      <li>Different vehicles were substituted for loading error.</li>
+      <li>Swapping of incorrect entries made by Transporters.</li>
+    </ul>
+  </div>
+
+  <p class="section-content" style="margin-bottom: 16px;">Additionally, the customers wanted Save on 1-Save out functionality so best to remove the dependency on mobile devices.</p>
+
+  <hr class="divider"/>
+
+  <!-- REFINED SOLUTION -->
+  <div class="section-block">
+    <h2>Refined Solution</h2>
+    <p class="section-content" style="margin-bottom: 16px;">To address the above key feedbacks, I redesigned the system with the following updates:</p>
+    <ul class="refined-list">
+      <li>Allowed vehicle details edits till Vehicle Out event.</li>
+      <li>Extended Vehicle Save on / Save out functionality on web platform (for now).</li>
+      <li>Added VAHAN verification to validate truck documents.</li>
+    </ul>
+  </div>
+
+  <p class="section-content" style="margin-bottom:28px;">As part of this update, I also redesigned the Vehicle Details section on the enterprise side. It now provides access to vehicle documents and serves as a entry point to edit and manage vehicle information.</p>
+
+  <!-- Before / After Split Screenshot -->
+  <a href="#" target="_blank" rel="noopener">
+    <img
+      src="https://placehold.co/840x380/e8f0f5/888888?text=Before+%2F+After+Vehicle+Details"
+      alt="Refined Vehicle Details section — before and after comparison"
+      class="img-placeholder"
+    />
+  </a>
+  <p class="img-caption">Refined Vehicle Details section — before &amp; after comparison</p>
+
+  <hr class="divider"/>
+
+  <!-- IMPACT -->
+  <div class="section-block">
+    <h2>Impact</h2>
+    <p class="section-content">The redesign produced measurable operational improvements:</p>
+  </div>
+
+  <div class="impact-grid">
+    <div class="impact-stat">
+      <div class="impact-number">~95%</div>
+      <div class="impact-desc">Removed dependency on supporting teams for updating details</div>
+    </div>
+    <div class="impact-stat">
+      <div class="impact-number">~60%</div>
+      <div class="impact-desc">Reduced the turnaround time between change request and trip movement</div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- KEY LEARNINGS -->
+  <div class="section-block">
+    <h2>Key Learnings</h2>
+    <p class="section-content" style="margin-bottom:24px;">Logistics workflows are always dynamic and unpredictable.</p>
+  </div>
+
+  <div class="learnings-grid">
+    <div class="learning-card">
+      <h3>The simplest designs hold a lot of complexity:</h3>
+      <p>Seemingly workflows to decouple this complexity and bring simplicity to users. Elegant solutions require a lot of exploration and iteration.</p>
+    </div>
+    <div class="learning-card">
+      <h3>Post-MVP feedback is a part of the design process:</h3>
+      <p>Post-launch revealed edge cases that could not be predicted during planning. The redesign came from observing real usage, not assumptions.</p>
+    </div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+</body>
+</html>
