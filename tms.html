@@ -142,15 +142,15 @@
       animation: fadeUp 0.5s ease forwards 0.25s;
     }
 
-    /* Regular section title — Inter 18px 600 */
+    /* Regular section title — JetBrains Mono 14px */
     .section-title {
-      font-family: 'Inter', sans-serif;
-      font-size: 18px;
-      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 700;
       line-height: 26px;
-      letter-spacing: -0.2px;
+      letter-spacing: -0.05em;
       color: var(--black);
-      text-transform: none;
+      text-transform: uppercase;
       margin-bottom: 12px;
     }
 
@@ -217,10 +217,10 @@
       margin-bottom: 6px;
     }
     .feature-list li::before {
-      content: '•';
+      content: '›';
       position: absolute;
       left: 0;
-      color: var(--body);
+      color: var(--gray);
     }
 
     /* IMPACT */
@@ -268,67 +268,6 @@
       font-size: 16px;
       color: var(--body);
       line-height: 1.7;
-    }
-
-    /* MASCOT */
-    .mascot-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 0 48px;
-    }
-    .mascot-wrap img {
-      width: 100px;
-      height: 100px;
-      object-fit: contain;
-    }
-    .mascot-label {
-      margin-top: 12px;
-      font-size: 14px;
-      color: var(--red);
-      letter-spacing: -0.16px;
-      line-height: 24px;
-    }
-
-    /* MASCOT */
-    .mascot-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 0 48px;
-    }
-    .mascot-wrap img {
-      width: 100px;
-      height: 100px;
-      object-fit: contain;
-    }
-    .mascot-label {
-      margin-top: 12px;
-      font-size: 14px;
-      color: var(--red);
-      letter-spacing: -0.16px;
-      line-height: 24px;
-    }
-
-
-    /* MASCOT */
-    .mascot-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 0 48px;
-    }
-    .mascot-wrap img {
-      width: 100px;
-      height: 100px;
-      object-fit: contain;
-    }
-    .mascot-label {
-      margin-top: 12px;
-      font-size: 14px;
-      color: var(--red);
-      letter-spacing: -0.16px;
-      line-height: 24px;
     }
 
     /* FOOTER */
@@ -381,7 +320,7 @@
   <nav>
     <div class="nav-inner">
       <a href="index.html" class="nav-home">HOME</a>
-      <a href="#" class="nav-next">NEXT PROJECT &nbsp;›</a>
+      <a href="#" class="nav-next">NEXT PROJECT</a>
     </div>
   </nav>
 
@@ -512,19 +451,12 @@
         </div>
       </div>
 
-
-      <!-- MASCOT -->
-      <div class="mascot-wrap">
-        <img src="images/mascot" alt="Still Sailing Still Learning" />
-        <p class="mascot-label">Still Sailing! Still Learning!</p>
-      </div>
-
     </div>
 
     <div class="footer-outer">
       <footer>
         <div class="footer-links">
-          <a href="/cdn-cgi/l/email-protection#85fceaf0f7c5e0e8e4ece9abe6eae8">email</a>
+          <a href="/cdn-cgi/l/email-protection#4930263c3b092c24282025672a2624">email</a>
           <span class="sep">/</span>
           <a href="#" target="_blank">twitter</a>
           <span class="sep">/</span>
