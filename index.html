@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ganesh — Product Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@700&family=Protest+Riot&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #111;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      height: 112px;
+      display: flex;
+      align-items: center;
+    }
+    .nav-inner {
+      width: 840px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-family: 'Protest Riot', sans-serif;
+      font-size: 16px;
+      color: #db0a40;
+      text-decoration: none;
+      letter-spacing: -0.16px;
+      line-height: 24px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      letter-spacing: -0.2px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #737373;
+      line-height: 26px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #111; }
+    .nav-links .sep { color: #737373; margin: 0 9px; }
+    .page { padding-top: 112px; }
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .hero { padding-top: 112px; }
+    .hero h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 40px;
+      color: #000;
+      width: 356px;
+      margin-bottom: 32px;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.5s ease forwards 0.05s;
+    }
+    .hero-photo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards 0.15s;
+    }
+    .hero-bio {
+      font-size: 16px;
+      font-weight: 400;
+      color: #262626;
+      letter-spacing: -0.2px;
+      line-height: 26px;
+      margin-bottom: 100px;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards 0.2s;
+    }
+    .recent-label {
+      font-family: 'Protest Riot', sans-serif;
+      font-size: 20px;
+      color: #db0a40;
+      line-height: 28px;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards 0.25s;
+    }
+    .project-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards 0.3s;
+    }
+    .project-img-wrap {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .project-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .project-link:hover .project-img { transform: scale(1.02); }
+    .project-meta {
+      position: relative;
+      padding: 20px 0 32px;
+    }
+    .project-title {
+      font-size: 18px;
+      font-weight: 500;
+      color: #000;
+      line-height: 26px;
+      letter-spacing: -0.2px;
+      margin-bottom: 6px;
+    }
+    .project-desc {
+      font-size: 16px;
+      font-weight: 400;
+      color: #262626;
+      line-height: 26px;
+      letter-spacing: -0.2px;
+      max-width: 558px;
+    }
+    .project-tag {
+      position: absolute;
+      right: 0;
+      top: 28px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 13.9px;
+      color: #db0a40;
+      letter-spacing: -0.7px;
+      line-height: 16.8px;
+    }
+    .mascot-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 0 48px;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards 0.4s;
+    }
+    .mascot-wrap img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+    }
+    .mascot-label {
+      margin-top: 14px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #db0a40;
+      letter-spacing: -0.16px;
+      line-height: 24px;
+    }
+    .footer-outer {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    footer {
+      border-top: 1px solid #777;
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      color: #717171;
+      letter-spacing: -0.16px;
+    }
+    .footer-links a {
+      color: #717171;
+      text-decoration: none;
+      line-height: 24px;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #111; }
+    .footer-links .sep { margin: 0 9px; color: #717171; }
+    .footer-date {
+      font-size: 16px;
+      color: #717171;
+      letter-spacing: -0.16px;
+      line-height: 24px;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 900px) {
+      .nav-inner { width: 100%; padding: 0 24px; }
+      .container { padding: 0 24px; }
+      .hero h1 { width: 100%; font-size: 26px; }
+      .project-desc { max-width: 100%; }
+      .project-tag { position: static; display: block; margin-top: 8px; }
+      .footer-outer { padding: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">GANESH</a>
+      <div class="nav-links">
+        <a href="index.html">work</a>
+        <span class="sep">/</span>
+        <a href="about.html">about</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page">
+    <div class="container">
+      <div class="hero">
+        <h1>Designing with purpose.&nbsp;<br>Building with care.</h1>
+        <img class="hero-photo" src="images/PFP.jpg" alt="Ganesh" />
+        <p class="hero-bio">Hey, I'm Ganesh! a Product Designer, Currently working at Taabi.</p>
+      </div>
+
+      <p class="recent-label">RECENT WORKS</p>
+
+      <a href="#" class="project-link">
+        <div class="project-img-wrap">
+          <img class="project-img" src="images/TMS_Title_Cover.jpg" alt="Transport Management System" />
+        </div>
+        <div class="project-meta">
+          <p class="project-title">Transport Management System</p>
+          <p class="project-desc">Simplifying the Indent Acceptance and Vehicle Assignment for Transporters</p>
+          <span class="project-tag">Taabi / 2025</span>
+        </div>
+      </a>
+
+      <div class="mascot-wrap">
+        <img src="images/mascot.png" alt="Still Sailing Still Learning" />
+        <p class="mascot-label">Still Sailing! Still Learning!</p>
+      </div>
+    </div>
+
+    <div class="footer-outer">
+      <footer>
+        <div class="footer-links">
+          <a href="mailto:your@email.com">email</a>
+          <span class="sep">/</span>
+          <a href="#" target="_blank">twitter</a>
+          <span class="sep">/</span>
+          <a href="#" target="_blank">linkedin</a>
+        </div>
+        <span class="footer-date">Last Updated, Feb 2026</span>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
