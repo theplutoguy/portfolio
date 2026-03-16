@@ -16,7 +16,7 @@
       -webkit-font-smoothing: antialiased;
     }
     nav {
-      position: fixed;
+      position: static;
       top: 0; left: 0; right: 0;
       z-index: 100;
       background: rgba(255,255,255,0.95);
@@ -55,7 +55,7 @@
     }
     .nav-links a:hover { color: #111; }
     .nav-links .sep { color: #737373; margin: 0 9px; }
-    .page { padding-top: 112px; }
+    .page { padding-top: 80px; }
     .container {
       max-width: 840px;
       margin: 0 auto;
@@ -71,6 +71,7 @@
       width: 100%;
       max-width: 700px;
       margin-bottom: 32px;
+      font-feature-settings: 'ss01' on;
       opacity: 0;
       transform: translateY(16px);
       animation: fadeUp 0.5s ease forwards 0.05s;
