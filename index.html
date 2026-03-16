@@ -68,7 +68,8 @@
       font-weight: 600;
       line-height: 40px;
       color: #000;
-      width: 356px;
+      width: 100%;
+      max-width: 700px;
       margin-bottom: 32px;
       opacity: 0;
       transform: translateY(16px);
@@ -219,6 +220,9 @@
       .project-tag { position: static; display: block; margin-top: 8px; }
       .footer-outer { padding: 0 24px; }
     }
+    @media (max-width: 600px) {
+      footer { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
   </style>
 </head>
 <body>
@@ -245,7 +249,7 @@
 
       <a href="#" class="project-link">
         <div class="project-img-wrap">
-          <img class="project-img" src="images/TMS_Title_Cover.jpg" alt="Transport Management System" />
+          <img class="project-img" src="images/Tms title cover" alt="Transport Management System" />
         </div>
         <div class="project-meta">
           <p class="project-title">Transport Management System</p>
@@ -255,7 +259,7 @@
       </a>
 
       <div class="mascot-wrap">
-        <img src="images/mascot.png" alt="Still Sailing Still Learning" />
+        <img src="images/mascot" alt="Still Sailing Still Learning" />
         <p class="mascot-label">Still Sailing! Still Learning!</p>
       </div>
     </div>
@@ -263,15 +267,11 @@
     <div class="footer-outer">
       <footer>
         <div class="footer-links">
-          <a href="mailto:your@email.com">email</a>
+          <a href="/cdn-cgi/l/email-protection#fd8492888fbd98909c9491d39e9290">email</a>
           <span class="sep">/</span>
           <a href="#" target="_blank">twitter</a>
           <span class="sep">/</span>
           <a href="#" target="_blank">linkedin</a>
         </div>
-        <span class="footer-date">Last Updated, Feb 2026</span>
+        <span class="footer-date">Last Updated, Mar 2026</span>
       </footer>
-    </div>
-  </div>
-</body>
-</html>
