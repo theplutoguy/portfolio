@@ -171,7 +171,7 @@
       letter-spacing: -0.2px;
       line-height: 16px;
       color: #DB0A40;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
     
     /* ── Objective highlight ── */
@@ -218,7 +218,87 @@
       animation: fadeUp 0.5s ease forwards 0.15s;
     }
     
+     /* ── Image caption ── */
+    .img-caption {
+      font-family: 'Inter', sans-serif;
+      font-feature-settings: 'cv11';
+      font-size: 13px;
+      line-height: 20px;
+      color: #918E89;
+      text-align: center;
+      margin-top: 8px;
+      margin-bottom: 32px;
+      }
     
+    /* ── diveder ── */
+          .divider {
+        border: none;
+        border-top: 1px solid #e5e5e5;
+        margin-bottom: 40px;
+      }
+      
+      /* ── Impact Stats ── */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0 40px;
+    }
+    @media (max-width: 560px) {
+      .impact-grid { grid-template-columns: 1fr; }
+    }
+    .impact-stat {
+      background: #f3f3f1;
+      border-radius: 10px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .impact-number {
+      font-family: 'Geist Mono', monospace;
+      font-size: 36px;
+      font-weight: 600;
+      color: #DB0A40;
+      line-height: 1;
+    }
+    .impact-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.2px;
+      color: #4A4948;
+      line-height: 26px;
+    }
+
+    /* ── Key Learnings ── */
+    .learnings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    @media (max-width: 600px) {
+      .learnings-grid { grid-template-columns: 1fr; }
+      .impact-grid { gap: 16px; }
+    }
+    .learning-card h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 550;
+      color: #DB0A40;
+      margin-bottom: 8px;
+      line-height: 26px;
+    }
+    .learning-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.2px;
+      color: #4A4948;
+      line-height: 26px;
+    }
+
     .mascot-wrap {
       display: flex;
       flex-direction: column;
