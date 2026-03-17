@@ -192,21 +192,25 @@
     }
     
      /* ── Feedback list ── */
-    .feedback-list {
-      list-style: disc;
-      padding-left: 22px;
-      margin: 0;
-    }
-    .feedback-list li {
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      letter-spacing: -0.2px;
-      line-height: 26px;
-      color: #4A4948;
-      margin-bottom: 24px;
-    }
-    
+	.feedback-list {
+	  list-style: disc;
+	  padding-left: 20px;
+	  margin: 0 0 24px 0;
+	}
+	
+	.feedback-list li {
+	  font-family: 'Inter', sans-serif;
+	  font-size: 16px;
+	  font-weight: 400;
+	  letter-spacing: -0.2px;
+	  line-height: 26px;
+	  color: #4A4948;
+	  margin-bottom: 10px;
+	}
+	
+	.feedback-list li:last-child {
+	  margin-bottom: 0;
+	}
     /* ── product photo ── */
         .product-photo {
       width: 100%;
@@ -234,8 +238,8 @@
           .divider {
         border: none;
         border-top: 1px solid #e5e5e5;
-        margin-bottom: 20px;
-		margin-top:20px;
+        margin-bottom: 40px;
+		margin-top:40px;
       }
 	  	  .spacer-divider {
   height: 40px;
@@ -464,8 +468,9 @@ Vehicle Assignment for Transporters</h1>
       class="product-photo"
     />
   </a>
+   <p class="img-caption">the action flow taken by the transporters</p>
 
-  <hr class="divider"/>
+  <div class="spacer-divider"></div>
 
   <!-- ADDITIONAL FEATURES -->
   <div class="section-block">
