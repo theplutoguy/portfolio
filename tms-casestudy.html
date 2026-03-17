@@ -330,42 +330,61 @@
       letter-spacing: -0.16px;
       line-height: 24px;
     }
-    .footer-outer {
-      max-width: 840px;
-      margin: 0 auto;
-      padding: 0 20px;
-	  box-sizing: border-box;
-    }
-    footer {
-      border-top: 1px solid #777;
-      padding: 24px 0;
-      display: flex;
+/* Make box-sizing universal */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Outer container */
+.footer-outer {
+  max-width: 840px;    /* maximum width */
+  width: 100%;         /* full width on smaller screens */
+  margin: 0 auto;      /* center horizontally */
+  padding: 0 20px;     /* 20px side padding */
+}
+
+	/* Footer itself */
+	footer {
+	  display: flex;
+	  justify-content: flex-start; /* align items left by default */
+	  align-items: center;
+	  border-top: 1px solid #918E89;
+	  padding: 24px 0;
 	  font-family: 'Inter', sans-serif;
 	  font-feature-settings: 'cv11';
-      justify-content: space-between;
-      align-items: center;
-    }
-    .footer-links {
-      display: flex;
-      align-items: center;
-      font-size: 16px;
-      color: #717171;
-      letter-spacing: -0.16px;
-    }
-    .footer-links a {
-      color: #717171;
-      text-decoration: none;
-      line-height: 24px;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: #111; }
-    .footer-links .sep { margin: 0 9px; color: #717171; }
-    .footer-date {
-      font-size: 16px;
-      color: #717171;
-      letter-spacing: -0.16px;
-      line-height: 24px;
-    }
+	}
+	
+	/* Links container */
+	.footer-links {
+	  display: flex;
+	  align-items: center;
+	  font-size: 16px;
+	  color: #918E89;
+	  letter-spacing: -0.16px;
+	  gap: 12px; /* spacing between links */
+	}
+	
+	/* Links styling */
+	.footer-links a {
+	  color: #918E89;
+	  text-decoration: none;
+	  line-height: 24px;
+	  transition: color 0.2s;
+	}
+	.footer-links a:hover {
+	  color: #1D1D1D;
+	}
+	
+	/* Date element pushed to the right */
+	.footer-text {
+	  margin-left: auto;   /* pushes date to the right */
+	  font-size: 16px;
+	  color: #918E89;
+	  letter-spacing: -0.16px;
+	  line-height: 24px;
+	}
     @keyframes fadeUp {
       to { opacity: 1; transform: translateY(0); }
     }
@@ -602,14 +621,13 @@ Vehicle Assignment for Transporters</h1>
       </div>
     </div>
 	
-    <div class="footer-outer">
-      <footer>
-        <div class="footer-links">
-          <a href="/cdn-cgi/l/email-protection#fd8492888fbd98909c9491d39e9290">twitter</a>
-          <span class="sep">/</span>
-          <a href="#" target="_blank">email</a>
-          <span class="sep">/</span>
-          <a href="#" target="_blank">linkedin</a>
-        </div>
-        <span class="footer-date">build with chai☕, code & a little haki⚡</span>
-      </footer>
+<div class="footer-outer">
+  <footer>
+    <div class="footer-links">
+      <a href="/cdn-cgi/l/email-protection#fd8492888fbd98909c9491d39e9290">twitter</a>
+      <a href="#" target="_blank">email</a>
+      <a href="#" target="_blank">linkedin</a>
+    </div>
+    <span class="footer-text">build with chai☕, code & a little haki⚡</span>
+  </footer>
+</div>
