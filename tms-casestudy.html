@@ -330,61 +330,41 @@
       letter-spacing: -0.16px;
       line-height: 24px;
     }
-/* Make box-sizing universal */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Outer container */
-.footer-outer {
-  max-width: 840px;    /* maximum width */
-  width: 100%;         /* full width on smaller screens */
-  margin: 0 auto;      /* center horizontally */
-  padding: 0 20px;     /* 20px side padding */
-}
-
-	/* Footer itself */
-	footer {
-	  display: flex;
-	  justify-content: flex-start; /* align items left by default */
-	  align-items: center;
-	  border-top: 1px solid #918E89;
-	  padding: 24px 0;
+  .footer-outer {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    footer {
+      border-top: 1px solid ##918E89;
+      padding: 24px 0;
+      display: flex;
 	  font-family: 'Inter', sans-serif;
 	  font-feature-settings: 'cv11';
-	}
-	
-	/* Links container */
-	.footer-links {
-	  display: flex;
-	  align-items: center;
-	  font-size: 16px;
-	  color: #918E89;
-	  letter-spacing: -0.16px;
-	  gap: 12px; /* spacing between links */
-	}
-	
-	/* Links styling */
-	.footer-links a {
-	  color: #918E89;
-	  text-decoration: none;
-	  line-height: 24px;
-	  transition: color 0.2s;
-	}
-	.footer-links a:hover {
-	  color: #1D1D1D;
-	}
-	
-	/* Date element pushed to the right */
-	.footer-text {
-	  margin-left: auto;   /* pushes date to the right */
-	  font-size: 16px;
-	  color: #918E89;
-	  letter-spacing: -0.16px;
-	  line-height: 24px;
-	}
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      color: #918E89;
+      letter-spacing: -0.16px;
+    }
+    .footer-links a {
+      color: #918E89;
+      text-decoration: none;
+      line-height: 24px;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #1D1D1D; }
+    .footer-links .sep { margin: 0 9px; color: #918E89; }
+    .footer-text {
+      font-size: 16px;
+      color: ##918E89;
+      letter-spacing: -0.16px;
+      line-height: 24px;
+    }
     @keyframes fadeUp {
       to { opacity: 1; transform: translateY(0); }
     }
