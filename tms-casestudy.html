@@ -3,82 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TMS – Simplifying Indent Acceptance</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
-<style>
- @font-face {
-  font-family: 'InterCustom';
-  src: url('fonts/InterVariable.ttf') format('truetype');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-  }
-</style>
-
+  <title>Ganeshkumar — Product Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
+  <!-- HTML in your document's head -->
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
-      background: #ffffff;
-      color: #000000;
-      font-family: 'InterCustom', sans-serif;
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #111;
       -webkit-font-smoothing: antialiased;
     }
+    /* ── Nav ── */
+    nav {
+      height: 112px;
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+    }
 
-    /* ── Layout ── */
-    .page-wrap {
+    .nav-inner {
+      width: 840px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* nav-style */
+    .nav-item {
+      font-family: 'Geist Mono', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      color: #918E89;
+      text-decoration: none;
+      letter-spacing: -0.2px;
+      line-height: 24px;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    .nav-item:hover {
+      color: #1D1D1D;
+    }
+    
+      /* ── Container ── */
+      .container {
       max-width: 840px;
       margin: 0 auto;
       padding: 0 20px;
-    }
-/* ── Nav ── */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 28px 0 32px;
-  flex-wrap: nowrap;
-}
-nav a {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: -0.2px;
-  line-height: 24px;
-  color: #717171;
-  text-decoration: none;
-  white-space: nowrap;
-}
-nav a:hover { color: #000; }
-    
-    /* ── Hero ── */
-    .hero {
+	  }
+      
+      
+	 /* ── Hero ── */
+    .hero { padding-top: 0px; }
+    .hero h1 {
+      font-family: 'Inter', sans-serif;
+      font-feature-settings: 'cv11';
       text-align: center;
-      padding-bottom: 32px;
+      font-size: 32px;
+	  color: 1D1D1D;
+      font-weight: 600;
+      line-height: 40px;
+      color: #000;
+      width: 100%;
+      max-width: 700px;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.5s ease forwards 0.05s;
     }
-
-h1 {
-  font-family: 'InterCustom', sans-serif;
-  font-size: 32px;
-  line-height: 40px;
-  font-weight: 600;
-  font-variation-settings: 'wght' 600;
-  color: #000000;
-  margin-bottom: 20px;
-  font-feature-settings: 'cv01' on, 'ss01' on;
-}
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 24px;
-        line-height: 34px;
-      }
-    }
-
-    /* ── Tags ── */
+        /* ── Tags ── */
     .tags {
       display: flex;
       justify-content: center;
@@ -87,645 +89,259 @@ h1 {
       margin-bottom: 40px;
     }
     .tag {
-      font-family: 'InterCustom', sans-serif;
+      font-family: 'Inter', sans-serif;
+      font-feature-settings: 'cv11';
       font-size: 13px;
-      font-weight: 400;
+      font-weight: 450;
       letter-spacing: -0.2px;
       line-height: 24px;
-      color: #717171;
-      border: 1px solid #888888;
+      color: #918E89;
+      border: 1px solid #918E89;
       padding: 6px 12px;
       border-radius: 4px;
-      font-feature-settings: 'cv01' 1, 'ss01' 1;
     }
-
-    .hero-image {
+    /* ── Photo ── */
+    .hero-photo {
       width: 100%;
       border-radius: 8px;
       display: block;
-      background: linear-gradient(135deg, #e8eaf0 0%, #dde3f0 100%);
-      overflow: hidden;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards 0.15s;
     }
-    .hero-image img {
-      width: 100%;
-      display: block;
-      border-radius: 8px;
-    }
-
+    
     /* ── Meta Row ── */
     .meta-row {
       display: flex;
+      justify-content: space-between;
       gap: 48px;
-      padding: 32px 0 24px;
+      padding: 24px 0 24px;
       border-bottom: 1px solid #e5e5e5;
       margin-bottom: 32px;
     }
     .meta-item {}
     .meta-label {
-      font-family: 'InterCustom', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 13px;
       font-weight: 400;
-      color: #717171;
+      color: #4A4948;
       letter-spacing: -0.2px;
       line-height: 24px;
       margin-bottom: 2px;
     }
     .meta-value {
-      font-family: 'InterCustom', sans-serif;
-      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
       font-weight: 500;
-      color: #000;
+      color: #1d1d1d;
       line-height: 22px;
     }
 
-    /* ── Section Block ── */
+     /* ── Section Block ── */
     .section-block {
-      margin-bottom: 40px;
+      margin-bottom: 0px;
     }
-.section-block h2 {
-  font-family: 'InterCustom', sans-serif;
-  font-size: 18px;
-  line-height: 26px;
-  font-weight: 500;
-  font-variation-settings: 'wght' 500;
-  letter-spacing: -0.2px;
-  color: #000000;
-  margin-bottom: 12px;
-}
+    
+    .section-block h2 {
+      font-family: 'Inter', sans-serif;
+      font-feature-settings: 'cv11';
+      font-size: 18px;
+      line-height: 26px;
+      font-weight: 500;
+      letter-spacing: -0.2px;
+      color: #1D1D1D;
+      margin-bottom: 12px;
     }
     .section-block p,
     .section-content {
-      font-family: 'InterCustom', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 16px;
       font-weight: 400;
       letter-spacing: -0.2px;
       line-height: 26px;
-      color: #262626;
+      color: #4A4948;
+      margin-bottom:32px
     }
 
     /* ── Special Section Labels ── */
     .special-label {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Geist Mono', monospace;
       font-size: 14px;
       font-weight: 600;
       letter-spacing: -0.2px;
       line-height: 16px;
       color: #DB0A40;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
-
+    
     /* ── Objective highlight ── */
     .objective-block {
       border-left: 3px solid #DB0A40;
-      padding: 14px 20px;
+      padding: 12px 20px;
       background: #fff5f7;
       border-radius: 0 6px 6px 0;
       margin-bottom: 40px;
     }
     .objective-block p {
-      font-family: 'InterCustom', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 16px;
       font-weight: 400;
       letter-spacing: -0.2px;
       line-height: 26px;
-      color: #262626;
+      color: #4A4948;
     }
-
-    /* ── Flow / Diagram Images ── */
-    .diagram-wrap {
-      margin: 32px 0;
-    }
-    .diagram-wrap .diagram-box {
-      width: 100%;
-      background: #f5f6fa;
-      border-radius: 10px;
-      padding: 32px 24px;
-      border: 1px solid #e5e5e5;
-    }
-    /* Acceptance Flow Diagram */
-    .flow-title {
-      font-family: 'InterCustom', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      color: #000;
-      margin-bottom: 24px;
-    }
-    .flow-diagram {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
-      flex-wrap: wrap;
-      position: relative;
-    }
-    .flow-node {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-    }
-    .flow-node .node-shape {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      border: 2px solid #ccc;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #fff;
-      font-size: 11px;
-      font-weight: 600;
-      text-align: center;
-      padding: 8px;
-      color: #333;
-      font-family: 'InterCustom', sans-serif;
-    }
-    .flow-node .node-shape.green { background: #1a7a4a; border-color: #1a7a4a; color: #fff; }
-    .flow-node .node-shape.grey { background: #e0e0e0; border-color: #bbb; color: #444; }
-    .flow-node .node-label {
-      font-size: 10px;
-      color: #888;
-      font-family: 'InterCustom', sans-serif;
-      text-align: center;
-      max-width: 90px;
-      line-height: 14px;
-    }
-    .flow-arrow {
-      width: 40px;
-      height: 2px;
-      background: #bbb;
-      position: relative;
-      margin: 0 4px;
-      align-self: center;
-      margin-top: -20px;
-    }
-    .flow-arrow::after {
-      content: '';
-      position: absolute;
-      right: -6px;
-      top: -4px;
-      border: 5px solid transparent;
-      border-left-color: #bbb;
-    }
-
-    .flow-side {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-left: 24px;
-    }
-    .flow-side-item {
-      background: #fff;
-      border: 1px solid #e0e0e0;
-      border-radius: 6px;
-      padding: 8px 12px;
-      font-size: 10px;
-      font-family: 'InterCustom', sans-serif;
-      color: #444;
-      font-weight: 500;
-    }
-
-    /* ── Screenshots ── */
-    .screenshot-wrap {
-      margin: 28px 0 8px;
-      border-radius: 12px;
-      overflow: hidden;
-      background: linear-gradient(135deg, #e8d5f5 0%, #c8d8f5 50%, #f5c8c8 100%);
-      padding: 8px;
-    }
-    .screenshot-mock {
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid #e0e0e0;
-    }
-    .screenshot-mock .mock-bar {
-      background: #f5f5f5;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      padding: 0 12px;
-      gap: 6px;
-      border-bottom: 1px solid #e5e5e5;
-    }
-    .mock-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .mock-dot.r { background: #ff5f57; }
-    .mock-dot.y { background: #febc2e; }
-    .mock-dot.g { background: #28c840; }
-    .mock-url {
-      flex: 1;
-      height: 18px;
-      background: #e8e8e8;
-      border-radius: 4px;
-      margin: 0 16px;
-    }
-    .mock-body {
-      display: flex;
-      min-height: 200px;
-    }
-    .mock-sidebar {
-      width: 180px;
-      background: #1e2235;
-      padding: 16px 12px;
-      flex-shrink: 0;
-    }
-    .mock-sidebar .s-logo {
-      width: 60px;
-      height: 20px;
-      background: #3d4870;
-      border-radius: 4px;
-      margin-bottom: 20px;
-    }
-    .mock-sidebar .s-item {
-      height: 10px;
-      background: #3d4870;
-      border-radius: 3px;
-      margin-bottom: 10px;
-    }
-    .mock-sidebar .s-item.active {
-      background: #5b6bab;
-    }
-    .mock-main {
-      flex: 1;
-      padding: 16px 20px;
-      background: #fafafa;
-    }
-    .mock-main .m-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-    .mock-main .m-title {
-      width: 140px;
-      height: 14px;
-      background: #ddd;
-      border-radius: 3px;
-    }
-    .mock-main .m-btn {
-      width: 80px;
-      height: 26px;
-      background: #1a7a4a;
-      border-radius: 5px;
-    }
-    .mock-main .m-filters {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-    .mock-main .m-filter {
-      height: 26px;
-      background: #e5e5e5;
-      border-radius: 4px;
-      flex: 1;
-    }
-    .mock-main .m-row {
-      height: 36px;
-      background: #fff;
-      border: 1px solid #ebebeb;
-      border-radius: 4px;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      padding: 0 10px;
-      gap: 12px;
-    }
-    .mock-main .m-row .m-cell {
-      height: 8px;
-      background: #e0e0e0;
-      border-radius: 2px;
-      flex: 1;
-    }
-    .mock-main .m-row .m-badge {
-      width: 60px;
-      height: 18px;
-      background: #e8f5ee;
-      border-radius: 10px;
-      flex-shrink: 0;
-    }
-    .mock-main .m-row .m-badge.orange {
-      background: #fff3e0;
-    }
-
-    /* Dialog mock */
-    .mock-dialog-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-    }
-    .mock-dialog {
-      background: #fff;
-      border-radius: 10px;
-      padding: 24px;
-      width: 280px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-    }
-    .dialog-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #fef0f0;
-      border: 2px solid #DB0A40;
-      margin: 0 auto 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      color: #DB0A40;
-    }
-    .dialog-title { width: 80%; height: 12px; background: #ddd; border-radius: 3px; margin: 0 auto 8px; }
-    .dialog-body { width: 90%; height: 8px; background: #eee; border-radius: 3px; margin: 0 auto 6px; }
-    .dialog-btns { display: flex; gap: 8px; margin-top: 16px; }
-    .dialog-btns .db { flex: 1; height: 30px; border-radius: 5px; background: #eee; }
-    .dialog-btns .db.primary { background: #DB0A40; }
-
-    .mock-form-body {
-      flex: 1;
-      padding: 16px 20px;
-      background: #fafafa;
-    }
-    .mock-form-body .f-row {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-    .mock-form-body .f-field {
-      flex: 1;
-      height: 34px;
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-    .mock-form-body .f-label {
-      height: 8px;
-      background: #ccc;
-      border-radius: 2px;
-      margin-bottom: 5px;
-      width: 60%;
-    }
-
-    /* ── Image caption ── */
-    .img-caption {
-      font-family: 'InterCustom', sans-serif;
-      font-size: 13px;
-      line-height: 20px;
-      color: #717171;
-      text-align: center;
-      margin-top: 8px;
-      margin-bottom: 32px;
-      font-feature-settings: 'cv01' on, 'ss01' on;
-    }
-
-    /* ── Bullet list ── */
-    .feature-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .feature-list li {
-      font-family: 'InterCustom', sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      letter-spacing: -0.2px;
-      line-height: 26px;
-      color: #262626;
-      padding-left: 20px;
-      position: relative;
-      margin-bottom: 10px;
-    }
-    .feature-list li::before {
-      content: '›';
-      position: absolute;
-      left: 0;
-      color: #888;
-    }
-
-    /* ── Feedback list ── */
+    
+     /* ── Feedback list ── */
     .feedback-list {
       list-style: disc;
       padding-left: 22px;
       margin: 0;
     }
     .feedback-list li {
-      font-family: 'InterCustom', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 16px;
       font-weight: 400;
       letter-spacing: -0.2px;
       line-height: 26px;
-      color: #262626;
+      color: #4A4948;
       margin-bottom: 8px;
     }
-
-    /* ── Impact Stats ── */
-    .impact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 24px 0 40px;
+    
+    .product-photo {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards 0.15s;
     }
-    @media (max-width: 560px) {
-      .impact-grid { grid-template-columns: 1fr; }
-    }
-    .impact-stat {
-      background: #f3f3f1;
-      border-radius: 10px;
-      padding: 24px;
+    
+    .mascot-wrap {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      align-items: center;
+      padding: 60px 0 48px;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards 0.4s;
     }
-    .impact-number {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 36px;
-      font-weight: 600;
-      color: #DB0A40;
-      line-height: 1;
+    .mascot-wrap img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
     }
-    .impact-desc {
-      font-family: 'InterCustom', sans-serif;
-      font-size: 16px;
+    .mascot-label {
+      margin-top: 14px;
+      font-size: 14px;
+	  font-family: 'Inter', sans-serif;
+	  font-feature-settings: 'cv11';
       font-weight: 400;
-      letter-spacing: -0.2px;
-      color: #262626;
-      line-height: 26px;
+      color: #1D1D1D;
+      letter-spacing: -0.16px;
+      line-height: 24px;
     }
-
-    /* ── Key Learnings ── */
-    .learnings-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-bottom: 48px;
-    }
-    @media (max-width: 600px) {
-      .learnings-grid { grid-template-columns: 1fr; }
-      .impact-grid { gap: 24px; }
-    }
-    .learning-card h3 {
-      font-family: 'InterCustom', sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      color: #DB0A40;
-      margin-bottom: 8px;
-      line-height: 26px;
-    }
-    .learning-card p {
-      font-family: 'InterCustom', sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      letter-spacing: -0.2px;
-      color: #262626;
-      line-height: 26px;
-    }
-
-    /* ── Divider ── */
-    .divider {
-      border: none;
-      border-top: 1px solid #e5e5e5;
-      margin: 40px 0;
-    }
-
-    /* ── Refined Solution bullets ── */
-    .refined-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .refined-list li {
-      font-family: 'InterCustom', sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      letter-spacing: -0.2px;
-      line-height: 26px;
-      color: #262626;
-      padding-left: 20px;
-      position: relative;
-      margin-bottom: 24px;
-    }
-    .refined-list li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: #262626;
-    }
-
-    /* ── Placeholder Images ── */
-    .img-placeholder {
-      width: 100%;
+    .footer-outer {
       max-width: 840px;
-      display: block;
-      border-radius: 8px;
-      background: #f0f0f0;
-      object-fit: cover;
-      margin-bottom: 32px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
-
-    /* Screenshot with gradient bg */
-    .ss-bg {
-      border-radius: 8px;
-      overflow: hidden;
-      padding: 24px;
-      margin-bottom: 24px;
+    footer {
+      border-top: 1px solid #777;
+      padding: 24px 0;
+      display: flex;
+	  font-family: 'Inter', sans-serif;
+	  font-feature-settings: 'cv11';
+      justify-content: space-between;
+      align-items: center;
     }
-    .ss-bg.purple { background: linear-gradient(135deg, #e8d5f5 0%, #c8d4f5 100%); }
-    .ss-bg.red    { background: linear-gradient(135deg, #f5d5d8 0%, #c8cef5 100%); }
-    .ss-bg.blue   { background: linear-gradient(135deg, #c8d8f5 0%, #f5e8d5 100%); }
-    .ss-bg.split  { background: linear-gradient(135deg, #d5e8f5 0%, #f5d5e8 100%); }
-
-    /* Before/After Split */
-    .split-mock {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      background: #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .split-pane {
-      background: #fff;
-      padding: 12px;
-      min-height: 180px;
-    }
-    .split-pane .sp-label {
-      font-size: 9px;
-      font-weight: 700;
-      color: #DB0A40;
-      margin-bottom: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      text-transform: uppercase;
-    }
-    .sp-row {
-      height: 28px;
-      background: #f5f5f5;
-      border-radius: 4px;
-      margin-bottom: 6px;
+    .footer-links {
       display: flex;
       align-items: center;
-      padding: 0 8px;
-      gap: 8px;
+      font-size: 16px;
+      color: #717171;
+      letter-spacing: -0.16px;
     }
-    .sp-row .sp-cell { flex: 1; height: 7px; background: #ddd; border-radius: 2px; }
-    .sp-row .sp-dot { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; }
-    .sp-row .sp-dot.g { background: #28c840; }
-    .sp-row .sp-dot.o { background: #febc2e; }
-
-    @media (max-width: 480px) {
-      nav { flex-direction: column; gap: 8px; align-items: flex-start; }
-      .meta-row { flex-direction: column; gap: 20px; }
-      .split-mock { grid-template-columns: 1fr; }
+    .footer-links a {
+      color: #717171;
+      text-decoration: none;
+      line-height: 24px;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #111; }
+    .footer-links .sep { margin: 0 9px; color: #717171; }
+    .footer-date {
+      font-size: 16px;
+      color: #717171;
+      letter-spacing: -0.16px;
+      line-height: 24px;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 900px) {
+      .nav-inner { width: 100%; padding: 0 24px; }
+      .container { padding: 0 24px; }
+      .hero h1 { width: 100%; font-size: 26px; }
+      .project-desc { max-width: 100%; }
+      .project-tag { position: static; display: block; margin-top: 8px; }
+      .footer-outer { padding: 0 24px; }
+    }
+    
+    /* ── breaker for meta row ── */
+    @media (max-width: 600px) {
+  .meta-row {
+    flex-direction: column;
+  }
+  .meta-item {
+    flex: none;         /* reset flex-grow */
+    margin-bottom: -24px; /* vertical spacing between stacked items */
+  }
+  .meta-item:last-child {
+    margin-bottom: 0;    /* no extra margin after last item */
+  }
+}
+    @media (max-width: 600px) {
+      footer { flex-direction: column; align-items: flex-start; gap: 12px; }
     }
   </style>
 </head>
 <body>
-
-<div class="page-wrap">
-
-  <!-- NAV -->
   <nav>
-    <a href="#">HOME</a>
-    <a href="#">NEXT PROJECT ›</a>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-item">HOMEPAGE</a>
+      <div class="nav-links">
+        <a href="about.html" class="nav-item">NEXT PROJECT ›</a>
+      </div>
+    </div>
   </nav>
 
-  <!-- HERO -->
-  <div class="hero">
-    <h1>Simplifying the Indent Acceptance and<br>Vehicle Assignment for Transporters</h1>
-
+  <div class="page">
+    <div class="container">
+      <div class="hero">
+        <h1>Simplifying the Indent Acceptance and
+Vehicle Assignment for Transporters</h1>
     <div class="tags">
       <span class="tag">B2B Saas</span>
       <span class="tag">Web & Mobile</span>
     </div>
-
-    <!-- Hero Screenshot -->
-    <a href="#" target="_blank" rel="noopener">
-      <img
-        src="images/TMS_Title_Cover.jpg"
-        alt="TMS Manage Proposals screen"
-        class="img-placeholder"
-      />
-    </a>
-  </div>
-
-  <!-- META ROW -->
-  <div class="meta-row">
-    <div class="meta-item">
-      <div class="meta-label">Role</div>
-      <div class="meta-value">Product Designer</div>
+        <img class="hero-photo" src="images/PFP.jpg" alt="Ganesh" />
+        
+       <!-- META ROW -->
+    <div class="meta-row">
+      <div class="meta-item">
+        <div class="meta-label">Role</div>
+        <div class="meta-value">Product Designer</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Period</div>
+        <div class="meta-value">Sept – Oct 2025</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Product</div>
+        <div class="meta-value">Web &amp; Mobile</div>
+      </div>
     </div>
-    <div class="meta-item">
-      <div class="meta-label">Period</div>
-      <div class="meta-value">Sept – Oct 2025</div>
-    </div>
-    <div class="meta-item">
-      <div class="meta-label">Product</div>
-      <div class="meta-value">Web &amp; Mobile</div>
-    </div>
-  </div>
-
-  <!-- CONTEXT -->
+    
+    <!-- CONTEXT -->
   <div class="section-block">
     <h2>Context</h2>
     <p class="section-content">The Transportation Management System (TMS) is a logistics solution used by enterprise logistics team and the transporter partners to plan and execute shipments. I led the 0 → 1 feature research and design and post-MVP redesign on the TMS platform for Enterprise logistics team and Transporter partners for indent acceptance and vehicle assignment. The solution reduced the dispatch delays and removed the support dependency for operational updates</p>
@@ -886,8 +502,21 @@ h1 {
       <p>Real users revealed edge cases that could not be predicted during planning. The redesign came from observing real usage, not assumptions.</p>
     </div>
   </div>
-
-</div><!-- /page-wrap -->
-
-</body>
-</html>
+  
+      <div class="mascot-wrap">
+        <img src="images/mascot.png" alt="Still Sailing Still Learning" />
+        <p class="mascot-label">still sailing! still learning!</p>
+      </div>
+    </div>
+	
+    <div class="footer-outer">
+      <footer>
+        <div class="footer-links">
+          <a href="/cdn-cgi/l/email-protection#fd8492888fbd98909c9491d39e9290">twitter</a>
+          <span class="sep">/</span>
+          <a href="#" target="_blank">email</a>
+          <span class="sep">/</span>
+          <a href="#" target="_blank">linkedin</a>
+        </div>
+        <span class="footer-date">build with chai☕, code & a little haki⚡</span>
+      </footer>
