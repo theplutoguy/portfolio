@@ -51,13 +51,16 @@
       letter-spacing: -0.2px;
     }
     .nav-links a {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      font-feature-settings: 'cv11';
       text-decoration: none;
-      color: #737373;
+      color: #918E89;
       line-height: 26px;
       transition: color 0.2s;
     }
     .nav-links a:hover { color: #111; }
-    .nav-links .sep { color: #737373; margin: 0 9px; }
+    .nav-links .sep { color: #918E89; margin: 0 9px; }
     .container {
       max-width: 840px;
       margin: 0 auto;
@@ -66,13 +69,15 @@
     .hero { padding-top: 112px; }
     .hero h1 {
       font-family: 'Inter', sans-serif;
+      font-feature-settings: 'cv11';
       font-size: 32px;
+	  color: 1D1D1D;
       font-weight: 600;
       line-height: 40px;
       color: #000;
       width: 100%;
       max-width: 700px;
-      margin-bottom: 32px;
+      margin-bottom: 48px;
       opacity: 0;
       transform: translateY(16px);
       animation: fadeUp 0.5s ease forwards 0.05s;
@@ -83,14 +88,14 @@
       object-fit: cover;
       border-radius: 8px;
       display: block;
-      margin-bottom: 32px;
+      margin-bottom: 48px;
       opacity: 0;
       animation: fadeUp 0.5s ease forwards 0.15s;
     }
     .hero-bio {
       font-size: 16px;
       font-weight: 400;
-      color: #262626;
+      color: #4A4948;
       letter-spacing: -0.2px;
       line-height: 26px;
       margin-bottom: 100px;
@@ -98,9 +103,10 @@
       animation: fadeUp 0.5s ease forwards 0.2s;
     }
     .recent-label {
-      font-family: 'Protest Riot', sans-serif;
-      font-size: 20px;
-      color: #db0a40;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      color: #918E89;
+      letter-spacing: -0.14px
       line-height: 28px;
       margin-bottom: 20px;
       opacity: 0;
@@ -131,9 +137,12 @@
       padding: 20px 0 32px;
     }
     .project-title {
+      <!-- HTML in your document's head -->
+	  font-family: 'Inter', sans-serif;
+	  font-feature-settings: 'cv11';
       font-size: 18px;
       font-weight: 500;
-      color: #000;
+      color: #1D1D1D;
       line-height: 26px;
       letter-spacing: -0.2px;
       margin-bottom: 6px;
@@ -141,7 +150,7 @@
     .project-desc {
       font-size: 16px;
       font-weight: 400;
-      color: #262626;
+      color: #4A4948;
       line-height: 26px;
       letter-spacing: -0.2px;
       max-width: 558px;
@@ -173,8 +182,10 @@
     .mascot-label {
       margin-top: 14px;
       font-size: 14px;
+	  font-family: 'Inter', sans-serif;
+	  font-feature-settings: 'cv11';
       font-weight: 400;
-      color: #db0a40;
+      color: #1D1D1D;
       letter-spacing: -0.16px;
       line-height: 24px;
     }
@@ -187,6 +198,8 @@
       border-top: 1px solid #777;
       padding: 24px 0;
       display: flex;
+	  font-family: 'Inter', sans-serif;
+	  font-feature-settings: 'cv11';
       justify-content: space-between;
       align-items: center;
     }
@@ -262,18 +275,19 @@
 
       <div class="mascot-wrap">
         <img src="images/mascot.png" alt="Still Sailing Still Learning" />
-        <p class="mascot-label">Still Sailing! Still Learning!</p>
+        <p class="mascot-label">still sailing! still learning!</p>
       </div>
     </div>
 
     <div class="footer-outer">
       <footer>
         <div class="footer-links">
-          <a href="/cdn-cgi/l/email-protection#fd8492888fbd98909c9491d39e9290">email</a>
+          <a href="/cdn-cgi/l/email-protection#fd8492888fbd98909c9491d39e9290">twitter</a>
           <span class="sep">/</span>
-          <a href="#" target="_blank">twitter</a>
+          <a href="#" target="_blank">email</a>
           <span class="sep">/</span>
           <a href="#" target="_blank">linkedin</a>
         </div>
-        <span class="footer-date">Last Updated, Mar 2026</span>
+        <span class="footer-date">build with chai☕, code & a little haki⚡</span>
       </footer>
+
